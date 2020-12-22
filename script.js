@@ -77,7 +77,13 @@ calculateButton.addEventListener("click", function () {
 
   const currencyResult = document.querySelector("#currency-result");
   currencyResult.innerHTML =
-    amount + " " + fromTarget + " = " + result + " " + toTarget;
+    amount +
+    " " +
+    symbolFunction(fromTarget) +
+    " = " +
+    result +
+    " " +
+    symbolFunction(toTarget);
 });
 
 function myFunction(message) {
@@ -87,4 +93,22 @@ function myFunction(message) {
     x.className = x.className.replace("show", "");
   }, 3000);
   document.querySelector("#snackbar").innerHTML = message;
+}
+
+function symbolFunction(element) {
+  console.log(element);
+  switch (element) {
+    case "USD":
+      return "$";
+      break;
+    case "EUR":
+      return "€";
+      break;
+    case "GBP":
+      return "£";
+      break;
+    case "TRY":
+      return "₺";
+      break;
+  }
 }
